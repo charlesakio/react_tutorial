@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/charlesjavelona/Desktop/c_program/exercises/week4/ICE/findArea.c
+
+/Users/charlesjavelona/Desktop/c_program/exercises/week4/ICE/findPerimeter.c
+
+/Users/charlesjavelona/Desktop/c_program/exercises/week4/ICE/main.c
+stdio.h
+-
+stdlib.h
+-
+
+/Users/charlesjavelona/Desktop/c_program/exercises/week4/ICE/print.c
+
