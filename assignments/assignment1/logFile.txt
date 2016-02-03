@@ -1,0 +1,4 @@
+Made a structire called Jumper
+Created loadFile function 
+Created main function 
+Created searchJumper function 
