@@ -2,3 +2,7 @@ Made a structire called Jumper
 Created loadFile function 
 Created main function 
 Created searchJumper function 
+Added a fscan before while loop to skip first line
+changed string format into float and 0.2f in print to avoid skipping lines
+changed string format into float and .02f in print to avoid skipping lines
+change searchJumper input variables to float

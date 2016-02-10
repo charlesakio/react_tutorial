@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/charlesjavelona/Desktop/c_program/exercises/week5/stacks/stack_array.c
+stdio.h
+-
+stdlib.h
+-
+

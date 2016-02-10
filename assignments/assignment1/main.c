@@ -9,7 +9,7 @@ typedef struct{
 	char firstname[30];
 	char lastname[30];
 	char nationality[50];
-	int result;
+	float result;
 }Jumper;
 
 
@@ -17,7 +17,7 @@ typedef struct{
 //Display all contents of the jumpers array
 void printJumpers(Jumper jumpers[], int jumpersLength){
 	for(int i = 1; i < jumpersLength; i++){
-		printf("FirstName: %s\t LastName: %s\t Nationality: %s\t Result: %d\n",
+		printf("FirstName: %s\t LastName: %s\t Nationality: %s\t Result: %.02f\n",
 				jumpers[i].firstname,
 				jumpers[i].lastname,
 				jumpers[i].nationality,
@@ -35,10 +35,10 @@ void loadFile(char fileName[10], Jumper jumpers[]){
 	//Create temp names for data myCustomers
 	char firstname[30];
 	char lastname[30];
-	char nationality[50];
-	int result;
+	char nationality[30];
+	float result = 0;
 	int counter;
-
+	char tmp[30];
 	//Decalre a file pointer
 	FILE* input = fopen(fileName, "r+"); //r means read, + means edit.
 	//Check if the file opened successfully
@@ -46,12 +46,10 @@ void loadFile(char fileName[10], Jumper jumpers[]){
 	if(input==NULL) perror("Error opening the file... :(]\n");
 	else{
 		counter = 0;
-		//Continue to read till the end of the file
-		
+		//Skips throught the first line
+		fscanf(input,"%s %s %s %s",tmp, tmp, tmp, tmp);
 		while(!feof(input)){
-			char ignore[20];
-			fgets(ignore, sizeof(ignore), input);
-			fscanf(input, "%s %s %s %d\n", firstname, lastname, nationality, &result); //If variable is number, add & in the beggining of variable for usage.
+		fscanf(input, "%s %s %s %f\n", firstname, lastname, nationality, &result); //If variable is number, add & in the beggining of variable for usage.
 			if(strcmp(firstname, "") != 0){
 			//A record has been found
 				strcpy(jumpers[counter].firstname, firstname);
@@ -62,8 +60,8 @@ void loadFile(char fileName[10], Jumper jumpers[]){
 			/*
 			printf("FirstName: |%s|\t", jumpers[counter].firstname);
 			printf("LastName: |%s|\t", jumpers[counter].lastname);
-			printf("Nationality: |%s|\t", jumpers[counter].nationality);
-			printf("Results: |%s|\n", jumpers[counter].result);
+			printf("Nationality: |%s|", jumpers[counter].nationality);
+			printf("Results: |%.02f|\n", jumpers[counter].result);
 			*/
 			counter++;
 		}//while()
@@ -74,13 +72,14 @@ void loadFile(char fileName[10], Jumper jumpers[]){
 }//loadFile
 
 
-void searchJumpers(int distance, Jumper jumpers[], int jumperSize){
+void searchJumpers(float distance, Jumper jumpers[], int jumperSize){
 	//Loop through the array of customers
 	for(int i = 0; i < jumperSize; i++){
-		if(jumpers[i].result >= distance){
-			printf("FirstName: %s\t LastName: %s\t Nationality: %s\t Result: %d\n",
+		if(jumpers[i].result > distance){
+			printf("FirstName: %s\t LastName: %s\t Nationality: %s\t Result: %.02f\n",
 				jumpers[i].firstname,
 				jumpers[i].lastname,
+			
 				jumpers[i].nationality,
 				jumpers[i].result  
 				);
@@ -92,7 +91,7 @@ int main(int argc, char* argv[]){
 	Jumper jumpers[50];	
 	int jumpersLength = sizeof(jumpers)/sizeof(jumpers[0]);
 	char filename[30] = "jump.txt";
-	int distance = 0;
+	float distance = 0;
 
 
 	//Access file
@@ -103,8 +102,8 @@ int main(int argc, char* argv[]){
 	
 	//Get name from user input
 	//Pass it to searchStudent function and return number or -1.
-	printf("Which result are you looking for\n");
-	scanf("%d", &distance);
+	printf("\nWhich result are you looking for\n");
+	scanf("%f", &distance);
 	searchJumpers(distance, jumpers, jumpersLength);
 	
 }//
