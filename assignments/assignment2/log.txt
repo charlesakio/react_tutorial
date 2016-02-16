@@ -1,0 +1,22 @@
+Commit1:
+	-Created main.c file
+	-Created functions surfaceArea and main.
+	- Tested surfaceArea to output into main.
+		- First test passed
+	- Created function volume.
+		- Tested volume to output into main.
+			- Test 1 failed. 
+				Input = result from surfaceArea
+				Expected output = 8
+				Output = 2413824 
+		- Tested volume to output into main.
+			- Test 2 failed. 
+				Input = 24
+				Expected output = 8
+				Output = 2413824
+		- Tested volume to output into main.
+			- Test 3 passed. 
+				Input = 2
+				Expected output = 8
+				Output = 8 
+			- Change "%d" to "\n%d"
