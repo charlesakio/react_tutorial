@@ -1,0 +1,18 @@
+Log 1:
+  - Added first commit
+  - Created structure for node, linkedlist
+  - Initialized linkedlist and main
+  - Main created with while loop
+  - Node only has int
+  - Able to print the node with int
+
+Log 2:
+ - Refactored node to add in char that has can take 20 characters
+ - Changed the print method to print the name in node
+ - Added boolean value to exit
+
+Log 3: 
+ - Refactored user input validation
+ - Attempting to deleteLastNode
+
+
