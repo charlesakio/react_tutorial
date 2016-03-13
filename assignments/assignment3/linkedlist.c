@@ -61,7 +61,6 @@ void printList(NodePtr movingPtr){
 	}
 }
 
-// TODO: Convert to dynamic char later
 int isEnd(char name[20]){
   //Compare input to exit
   //if true, return true
@@ -80,11 +79,13 @@ int main(){
 	int n; 
   char name[20];
   int input;
+  int record = 1;
 	// create a linked list variable 
 	LinkedList myList;
 	myList.first= NULL;    // myList is empty
 
   // get the first name 
+  printf("Record #%d:\n", record);
   printf("Enter a name: ");
   scanf("%s", name);
   input = isEnd(name);
@@ -94,6 +95,9 @@ int main(){
 	scanf("%d", &n); 
 	
 	while(input != 1){
+    //Increase record count by 1
+    record++;
+
     //create a new node to keep n
 		myList.np=makeNode(name, n);
 
@@ -106,30 +110,28 @@ int main(){
 			
 		//update the last pointer
 		myList.last=myList.np;
+
+    printf("\nRecord #%d:\n", record);
     // get another name
     printf("Enter a name: ");
     scanf("%s", name);
     input = isEnd(name);
     
     if (input == 1){
+      printf("Goodbye:)\n");
       break;
     }
 
     // get another number 
     printf("Enter a number: ");
 		scanf("%d",&n);
-    
   }
+
+  printf("\n\nThe customer stored in the linkedlist are:\n");
   printList(myList.first);
 
+  //Delete the first record
   myList = deleteFirstNode(myList);
-
+  printf("\nThe first customer record is deleted and the remaining records are:\n");
   printList(myList.first);
-
-
-  
-  //printList(myList.first);
-
-
-
 }

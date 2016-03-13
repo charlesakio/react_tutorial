@@ -15,4 +15,5 @@ Log 3:
  - Refactored user input validation
  - Attempting to deleteLastNode
 
-
+Log 4:
+  - Had trouble to understand linkedlist deletion so I asked for my friend to help me understand how it works.
