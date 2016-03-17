@@ -7,7 +7,7 @@ var hashHistory = ReactRouter.hashHistory;
 
 var Main = require('../components/Main');
 var Home = require('../components/Home');
-var PromptContainer = require('../components/PromptContainer');
+var PromptContainer = require('../containers/PromptContainer');
 
 var routes = (
   <Router history={hashHistory}>
