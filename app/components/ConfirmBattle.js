@@ -1,16 +1,15 @@
 var React = require('react');
 //var PropTypes = require('react.propTypes')
 
-function ConfirmBattle (props) {
-  return props.isLoading == true
-    ? <p>LOADING </p>
-    : <p> CONFIRM BATTLE </p>
+function puke (object) {
+  return <pre>{JSON.stringify(object, null, ' ')}</pre>
 }
 
-/*
-ConfirmBattle.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  playerInfo: PropTypes.array.isRequired
+
+function ConfirmBattle (props) {
+  return props.isLoading === true
+    ? <p>LOADING </p>
+    : <div> CONFIRM BATTLE: {puke(props)}</div>
 }
-*/
+
 module.exports = ConfirmBattle;

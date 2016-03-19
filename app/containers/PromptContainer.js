@@ -1,5 +1,5 @@
 var React = require('react');
-var Prompt = require('../components/Prompt')
+var Prompt = require('../components/Prompt');
 
 var PromptContainer = React.createClass({
   contextTypes: {
@@ -18,16 +18,15 @@ var PromptContainer = React.createClass({
     });
     
     if (this.props.routeParams.playerOne) {
-      var pathname = 
       this.context.router.push({
         pathname: '/battle',
         query: {
-          playerOne: this.props.routerParams.playerOne,
-          playerTwo: this.state.username
+          playerOne: this.props.routeParams.playerOne,
+          playerTwo: this.state.username,
         }
       })
     } else {
-    //Go to player twow
+    //Go to player two
       this.context.router.push('/playerTwo/' + this.state.username)
     }
   },
@@ -37,7 +36,7 @@ var PromptContainer = React.createClass({
     });
   },
   render: function() {
-    console.log(this)
+    //console.log(this)
     return (
       <Prompt 
         onSubmitUser={this.handleSubmitUser}
