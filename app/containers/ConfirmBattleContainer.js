@@ -36,10 +36,20 @@ var ConfirmBattleContainer = React.createClass({
   componentWillUnmount: function() {
     console.log('componentWillUnmount')
   },
+  handleInitiateBattle: function() {
+    console.log('handleInitiateBattle')
+    this.context.router.push({
+      pathname: '/results',
+      state: {
+        playersInfo: this.state.playersInfo
+      }
+    })
+  },
   render: function() {
     return (
       <ConfirmBattle 
         isLoading={this.state.isLoading} 
+        onInitiateBattle={this.handleInitiateBattle}
         playersInfo={this.state.playersInfo} />
     )
   }
