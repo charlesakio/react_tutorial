@@ -16,7 +16,7 @@ var PromptContainer = React.createClass({
     this.setState({
       username: ''
     });
-    
+
     if (this.props.routeParams.playerOne) {
       this.context.router.push({
         pathname: '/battle',
@@ -26,24 +26,21 @@ var PromptContainer = React.createClass({
         }
       })
     } else {
-    //Go to player two
       this.context.router.push('/playerTwo/' + this.state.username)
     }
   },
-  handleUpdateUser: function(event) {
+  handleUpdateUser: function (event) {
     this.setState({
       username: event.target.value
     });
   },
-  render: function() {
-    //console.log(this)
+  render: function () {
     return (
-      <Prompt 
+      <Prompt
         onSubmitUser={this.handleSubmitUser}
         onUpdateUser={this.handleUpdateUser}
-        header={this.props.route.header} 
-        username={this.state.username}
-        />
+        header={this.props.route.header}
+        username={this.state.username} />
     )
   }
 });

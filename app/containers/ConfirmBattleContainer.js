@@ -1,43 +1,28 @@
 var React = require('react');
-
 var ConfirmBattle = require('../components/ConfirmBattle');
 var githubHelpers = require('../utils/githubHelpers');
 
 var ConfirmBattleContainer = React.createClass({
-  contexTypes: {
+  contextTypes: {
     router: React.PropTypes.object.isRequired
   },
-  getInitialState: function() {
-    console.log('getInitialState')
+  getInitialState: function () {
     return {
       isLoading: true,
       playersInfo: [],
     }
   },
-  componentDidMount: function() {
+  componentDidMount: function () {
     var query = this.props.location.query;
-    // https://egghead.io/playlists/the-this-key-word-250c37d9
-    // For understanding .bind(this)
     githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
-    .then(function (players) {
-      this.setState({
-        isLoading: false,
-        playersInfo: [players[0], players[1]]
-      })
-    }.bind(this))
+      .then(function (players) {
+        this.setState({
+          isLoading: false,
+          playersInfo: [players[0], players[1]]
+        })
+      }.bind(this))
   },
-  componentWillMount: function() {
-    console.log('componentWillMount')
-    //Fetch infofrom github then update state
-  },
-  componentWillReceiveProps: function() {
-    console.log('componentWillReceiveProps')
-  },
-  componentWillUnmount: function() {
-    console.log('componentWillUnmount')
-  },
-  handleInitiateBattle: function() {
-    console.log('handleInitiateBattle')
+  handleInitiateBattle: function () {
     this.context.router.push({
       pathname: '/results',
       state: {
@@ -45,10 +30,10 @@ var ConfirmBattleContainer = React.createClass({
       }
     })
   },
-  render: function() {
+  render: function () {
     return (
-      <ConfirmBattle 
-        isLoading={this.state.isLoading} 
+      <ConfirmBattle
+        isLoading={this.state.isLoading}
         onInitiateBattle={this.handleInitiateBattle}
         playersInfo={this.state.playersInfo} />
     )
@@ -56,5 +41,3 @@ var ConfirmBattleContainer = React.createClass({
 });
 
 module.exports = ConfirmBattleContainer;
-
-
