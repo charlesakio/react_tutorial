@@ -68,4 +68,24 @@ TreeNodePtr findOrInsert(BinaryTree bt, NodeData d) {
   return curr;
 }
 
+//Count nodes
+int numNodes (TreeNodePtr root){
+  if(root == NULL){
+    return 0;
+  } else {
+    return 1 + numNodes(root->left) + numNodes(root->right);
+  }
+}
 
+//count leaves
+int numLeaves(TreeNodePtr root){
+  if(root == NULL) {
+    return 0;
+  }
+
+  if(root->left == NULL && root->right == NULL){
+    return 1;
+  } else {
+    numLeaves(root->left) + numLeaves(root->right);
+  }
+}
