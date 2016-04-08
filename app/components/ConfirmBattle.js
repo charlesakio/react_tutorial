@@ -5,10 +5,11 @@ var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var UserDetailsWrapper = require('./UserDetailsWrapper');
 var UserDetails = require('./UserDetails');
+var Loading = require('./Loading');
 
 function ConfirmBattle (props) {
   return props.isLoading === true
-    ? <p>LOADING</p>
+    ? <Loading />
     : <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
         <h1>Confirm Players</h1>
         <div className='col-sm-8 col-sm-offset-2'>
