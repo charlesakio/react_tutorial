@@ -1,0 +1,12 @@
+Test #1:
+  - Check to see if file called integers can be opened
+    Input: File called 'integers.txt'
+    Output expected: "File opened"
+    Output: "File opened"
+    Result: Success
+
+Test #2:
+  - Determine if function to extract numbers works
+    Input: File called 'integers.txt' and the numbers inside the file.
+    Output expected: Print of the numbers in the file
+    
